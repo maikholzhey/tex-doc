@@ -1,0 +1,168 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usetikzlibrary{arrows,intersections}
+\usepackage{tikz}
+\usetikzlibrary{arrows,trees,calc, positioning}
+\usepackage{relsize}
+\newcommand\LM{\ensuremath{\mathit{LM}}}
+\newcommand\IS{\ensuremath{\mathit{IS}}}
+\usepackage{bbding}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{amssymb}
+
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+\begin{document}
+
+\usetikzlibrary{calc,decorations.pathmorphing,patterns}
+\pgfdeclaredecoration{penciline}{initial}{
+    \state{initial}[width=+\pgfdecoratedinputsegmentremainingdistance,
+    auto corner on length=1mm,]{
+        \pgfpathcurveto%
+        {% From
+            \pgfqpoint{\pgfdecoratedinputsegmentremainingdistance}
+                      {\pgfdecorationsegmentamplitude}
+        }
+        {%  Control 1
+        \pgfmathrand
+        \pgfpointadd{\pgfqpoint{\pgfdecoratedinputsegmentremainingdistance}{0pt}}
+                    {\pgfqpoint{-\pgfdecorationsegmentaspect
+                     \pgfdecoratedinputsegmentremainingdistance}%
+                               {\pgfmathresult\pgfdecorationsegmentamplitude}
+                    }
+        }
+        {%TO 
+        \pgfpointadd{\pgfpointdecoratedinputsegmentlast}{\pgfpoint{1pt}{1pt}}
+        }
+    }
+    \state{final}{}
+}
+
+\begin{tikzpicture}[
+  	  thick,
+    >=stealth',
+    dot/.style = {
+      draw,
+      fill = white,
+      circle,
+      inner sep = 0pt,
+      minimum size = 4pt
+    }
+        scale=2,
+        IS/.style={blue, thick},
+        LM/.style={red, thick},
+        axis/.style={very thick, ->, >=stealth', line join=miter},
+        important line/.style={thick}, dashed line/.style={dashed, thin},
+        every node/.style={color=black},
+        dot/.style={circle,fill=black,minimum size=4pt,inner sep=0pt,
+            outer sep=-1pt},
+      decoration=penciline, decorate, scale=1.0,
+    fib masche out/.style={top color=black!80, bottom color=black!80, draw=black!80, rounded corners = 5pt},
+    fib masche in/.style={fill=white, draw=white, rounded corners = 5pt},
+    fib button out/.style={fill=black!80, draw=black!50},
+    fib button in/.style={fill=white, draw=black!50},
+    fib data/.style={fill=white, draw=black, rounded corners = 5pt},
+    fib faeden/.style={fill=gray!80, draw=white, rounded corners = 5pt},
+    fib box1/.style={fill=gray!20, draw=black!90, rounded corners = 5pt},
+    fib noppen/.style={fill=gray, draw=black, rounded corners = 5pt},
+    fib background vert/.style={left color=black!40, right color=black!10, draw=black!50},
+    fib background/.style={fill=black!30, draw=black!50},
+    fib lens thick/.style={draw=black!80, line width=0.04cm},
+    fib lens thinn/.style={draw=black!95, line width=0.02cm},
+    fib mirror/.style={draw=black!60, line width=0.03cm, fill=black!20},
+    fib objective/.style={draw=black!60, line width=0.03cm},
+    fib quadrupole/.style={draw=black!60, line width=0.03cm},
+    fib blanker/.style={draw=black!90, fill=black!60},
+    fib octopole/.style={draw=black!80, line width=0.04cm},
+    ]]
+    % axis
+  \coordinate (O) at (0,0);
+  \draw[->] (-0.3,0) -- (7,0) coordinate[label ={}] (xmax);
+  \draw[->] (0,-0.3) -- (0,5) coordinate[label = {}] (ymax);
+  \path[name path=x] (0.3,0.5) -- (6.7,4.7);
+  \path[name path=y] plot[smooth] coordinates {(-0.3,2) (2,1.5) (4,2.8) (6,5)};
+  \scope[name intersections = {of = x and y, name = i}]
+
+\draw (1,4) node[] (s)  {\begin{Huge}\color{red}\xmark\color{black}\end{Huge}} ;
+\draw (2.5,3) node[] (s) {\begin{Huge}\color{red}\xmark\color{black}\end{Huge}} ;
+\draw (4,2) node[] (s) {\begin{Huge}\color{red}\xmark\color{black}\end{Huge}} ;
+\draw (5.5,1) node[] (s) {\begin{Huge}\color{red}\xmark\color{black}\end{Huge}} ;
+
+\draw (-.5,3.5) node[rotate=90] (s) {\begin{large}\textsf{Feature Value}\end{large}} ;
+\draw[thick] (1,-0.15) -- (1,.15);
+\draw[thick] (2.5,-0.15) -- (2.5,.15);
+\draw[thick] (4,-0.15) -- (4,.15);
+\draw[thick] (5.5,-0.15) -- (5.5,.15);
+\draw[fib noppen] (0,1) circle (.1);
+\draw (1,-.6) node[] (s) {\textsf{A}} ;
+\draw (2.5,-.6) node[] (s) {\textsf{E}} ;
+\draw (4,-.6) node[] (s) {\textsf{M}} ;
+\draw (5.5,-.6) node[] (s) {\textsf{K}} ;
+
+%data
+\draw [fib data] (-9,2.2) rectangle (-8,2.8);
+%template
+\draw [fib data] (-6,2.7) rectangle (-5,3.3);
+\draw [fib data] (-6,1.7) rectangle (-5,2.3);
+\draw [fib data] (-6,0.7) rectangle (-5,1.3);
+\draw [fib data] (-6,3.7) rectangle (-5,4.3);
+ 
+\path[draw, thick, <->](-8,2.8) node[] {} to[](-6,4);
+\path[draw, thick, <->](-8,2.6) node[] {} to[](-6,3);
+\path[draw, thick, <->](-8,2.4) node[] {} to[](-6,2);
+\path[draw, thick, <->](-8,2.2) node[] {} to[](-6,1);
+
+\path[draw, thick, <->](-8,2.2) node[] {} to[](-6,1);
+
+\draw (-2.5,.95) node[] (s) {\textbf{$x_4$}} ;
+\draw (-2.5,1.95) node[] (s) {\textbf{$x_3$}} ;
+\draw (-2.5,2.95) node[] (s) {\textbf{$x_2$}} ;
+\draw (-2.5,3.95) node[] (s) {\textbf{$x_1$}} ;
+
+\path[draw, thick, ->](-5,1) node[] {} to[](-2.85,1);
+\path[draw, thick, ->](-5,2) node[] {} to[](-2.85,2);
+\path[draw, thick, ->](-5,3) node[] {} to[](-2.85,3);
+\path[draw, thick, ->](-5,4) node[] {} to[](-2.85,4);
+
+\draw (-8.5,4) node[] (s) {\textsf{Unkown Data}} ;
+\draw (-7,0.5) node[] (s) {\texttt{xcorr()}} ;
+\draw (-5.5,5) node[] (s) {\textsf{Template}} ;
+\draw (-2.5,5) node[] (s) {\textsf{Feature Value}} ;
+
+\draw (-5.5,4) node[] (s) {\begin{scriptsize}\textsl{A}\end{scriptsize}} ;
+\draw (-5.5,3) node[] (s) {\begin{scriptsize}\textsl{E}\end{scriptsize}} ;
+\draw (-5.5,2) node[] (s) {\begin{scriptsize}\textsl{M}\end{scriptsize}} ;
+\draw (-5.5,1) node[] (s) {\begin{scriptsize}\textsl{K}\end{scriptsize}} ;
+
+\path[draw, thick, ->, dashed, gray](-2.25,3.75) node[] {} to[](-0.25,1.25);
+
+\draw (3.5,5) node[] (s) {\textsf{Decision Model: \textbf{A Template specific}}} ;
+
+\draw (7.5,2.5) node[] (s) {\begin{Huge}\color{black} $\Rightarrow$\color{black}\end{Huge}} ;
+
+\draw (10,3) node[] (s)  {\textsf{Decision:}};
+\draw (10,2) node[] (s)  {\texttt{return 10\%  likelihood}};
+\draw (10,1.5) node[] (s)  {\texttt{Unkown Data = A;}};
+%    \fill[gray!20] (i-1) -- (i-2 |- i-1) -- (i-2) -- cycle;
+ %   \draw[red] (0,2) -- (5,2) node[pos=0.8, above] {$R=\infty$};
+%    \draw[red] plot[smooth] coordinates {(-0.3,2) (2,1.5) (4,2.8) (6,5)};
+%    \draw (i-1) node[dot, label = {above:$P$}] (i-1) {} -- node[left]
+%      {$f(x_0)$} (i-1 |- O) node[dot, label = {below:$x_0$}] {};
+%    \path (i-2) node[dot, label = {above:$Q$}] (i-2) {} -- (i-2 |- i-1)
+%      node[dot] (i-12) {};
+%    \draw           (i-12) -- (i-12 |- O) node[dot,
+%                              label = {below:$x_0 + \varepsilon$}] {};
+%    \draw[blue, <->] (i-2) -- node[right] {$f(x_0 + \varepsilon) - f(x_0)$}
+%                              (i-12);
+%    \draw[blue, <->] (i-1) -- node[below] {$\varepsilon$} (i-12);
+%    \path       (i-1 |- O) -- node[below] {$\varepsilon$} (i-2 |- O);
+%    \draw[gray]      (i-2) -- (i-2 -| xmax);
+%    \draw[gray, <->] ([xshift = -0.5cm]i-2 -| xmax) -- node[fill = white]
+%      {$f(x_0 + \varepsilon)$}  ([xshift = -0.5cm]xmax);
+  \endscope
+
+
+\end{tikzpicture}
+\end{document}

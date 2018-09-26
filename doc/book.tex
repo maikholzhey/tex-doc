@@ -1,0 +1,126 @@
+\documentclass[a4paper,twoside,10pt]{book}
+\usepackage[utf8]{inputenc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% switch languages
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[english]{babel}
+%\usepackage[ngerman]{babel}
+
+\usepackage{theme}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Styleguide
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Defaults
+%\begin{table}
+%\centering
+%\caption{Ergebnisse zu Aufgabe 2 der Laboraufgaben.}
+%\begin{tabularx}{.9\textwidth}{X X X X}
+%\toprule[2pt]
+%Spannung & Fourier & Nulldurchgänge & Spektrogramm \\
+%\midrule
+%10 V & 1045.4 min$^{-1}$ & 1002.3 min$^{-1}$ & 1286.8 min$^{-1}$ \\
+%20 V & 2993.1 min$^{-1}$ & 2858.3 min$^{-1}$ & 2637.9 min$^{-1}$ \\
+%30 V & 4573.1 min$^{-1}$ & 4369 min$^{-1}$ & 4685.3 min$^{-1}$ \\
+%\bottomrule[2pt]
+%\end{tabularx} 
+%\label{tab:2:var1}
+%\end{table}
+%
+%\lstset{caption= Implementierung der \texttt{SAF.m}-Funktion, label = vb_safm}
+%\begin{footnotesize}
+%\begin{lstlisting}
+%\end{lstlisting}
+%\end{footnotesize}
+
+%
+%\begin{equation}\label{eq:edefizit}\text{\footnotesize{\cite{nue}: }}
+%
+%\end{equation}
+
+%includegraphics Makro
+%\pic{path}{caption}{label}{size[\textwidth]}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Dokument Info
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\institute}{}
+\newcommand{\department}{}
+\newcommand{\university}{}
+\newcommand{\thesis}{}
+\newcommand{\professor}{}
+\newcommand{\supervisor}{}
+\newcommand{\collaborator}{}
+\title{}
+\author{}
+\newcommand{\studentno}{}
+\date{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Glossary
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newacronym{awg}{AWG}{Arbitrary Waveform Generator}
+
+\newglossaryentry{ieee}
+{
+name={\textsl{IEEE}},
+description={Institute of Electrical and Electronics Engineers. Proffessional association of electronics and electrical engineers. Next to organizing conferences and publishing the latest outcome in research and development, it is responsible for many well accepted industry standards.},
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONTENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\frontmatter
+
+\tpage
+
+\cleardoublepage
+
+\phantomsection\addcontentsline{toc}{chapter}{Abstract}\chapter*{Abstract}
+TODO
+
+\phantomsection\addcontentsline{toc}{chapter}{\contentsname}\tableofcontents
+
+\cleardoublepage
+
+\phantomsection\addcontentsline{toc}{chapter}{\listfigurename}\listoffigures
+
+\cleardoublepage
+
+\phantomsection\addcontentsline{toc}{chapter}{\listtablename}\listoftables
+
+\cleardoublepage
+
+\phantomsection\addcontentsline{toc}{chapter}{\acronymname}\printglossary[type=\acronymtype]
+
+\cleardoublepage
+
+\phantomsection\addcontentsline{toc}{chapter}{\glossaryname}\printglossary
+
+\cleardoublepage
+
+\renewcommand{\baselinestretch}{1.25}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mainmatter
+
+\chapter{Introduction}
+
+\chapter{Theory}
+
+\bibliographystyle{apalike}
+\bibliography{lit} % Endung .bib
+\addcontentsline{toc}{chapter}{\bibname}
+
+
+\end{document}

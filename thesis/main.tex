@@ -1,0 +1,193 @@
+\documentclass[a4paper,twoside,10pt]{book}
+\usepackage[utf8]{inputenc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% switch languages
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[english]{babel}
+%\usepackage[ngerman]{babel}
+
+\usepackage{theme}
+\sloppy
+\raggedbottom
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+% python code index
+\makeindex
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Styleguide
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Defaults
+%\begin{table}
+%\centering
+%\caption{Ergebnisse zu Aufgabe 2 der Laboraufgaben.}
+%\begin{tabularx}{.9\textwidth}{X X X X}
+%\toprule[2pt]
+%Spannung & Fourier & Nulldurchgänge & Spektrogramm \\
+%\midrule
+%10 V & 1045.4 min$^{-1}$ & 1002.3 min$^{-1}$ & 1286.8 min$^{-1}$ \\
+%20 V & 2993.1 min$^{-1}$ & 2858.3 min$^{-1}$ & 2637.9 min$^{-1}$ \\
+%30 V & 4573.1 min$^{-1}$ & 4369 min$^{-1}$ & 4685.3 min$^{-1}$ \\
+%\bottomrule[2pt]
+%\end{tabularx} 
+%\label{tab:2:var1}
+%\end{table}
+%
+%\lstset{caption= Implementierung der \texttt{SAF.m}-Funktion, label = vb_safm}
+%\begin{footnotesize}
+%\begin{lstlisting}
+%\end{lstlisting}
+%\end{footnotesize}
+
+%
+%\begin{equation}\label{eq:edefizit}\text{\footnotesize{\cite{nue}: }}
+%
+%\end{equation}
+
+%includegraphics Makro
+%\pic{path}{caption}{label}{size[\textwidth]}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Dokument Info
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\institute}{}
+\newcommand{\department}{}
+\newcommand{\university}{}
+\newcommand{\thesis}{}
+\newcommand{\professor}{}
+\newcommand{\supervisor}{}
+\newcommand{\collaborator}{}
+\title{master-tet}
+\author{}
+\newcommand{\studentno}{}
+\date{\today}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Glossary
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newacronym{awg}{AWG}{Arbitrary Waveform Generator}
+
+\newglossaryentry{ieee}
+{
+name={\textsl{IEEE}},
+description={Institute of Electrical and Electronics Engineers. Proffessional association of electronics and electrical engineers. Next to organizing conferences and publishing the latest outcome in research and development, it is responsible for many well accepted industry standards.},
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% List of Symbols
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[final]{listofsymbols}
+\renewcommand{\symheadingname}{\rule{2cm}{0.4pt}}
+\opensymdef
+\newsym[Quantity of natural numbers]{symnz}{\mathbb{N}}
+\closesymdef
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONTENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\frontmatter
+
+\tpage
+
+\cleardoublepage
+
+\cleardoublepage
+\addtocounter{page}{-2}
+\phantomsection\addcontentsline{toc}{chapter}{Declaration of Academic Integrity}\section*{Declaration of Academic Integrity}
+%\section*{Declaration of Academic Integrity}
+
+Herewith I affirm that this present thesis is solely my own work and has been composed without the use of any other resources than the ones indicated.
+
+\noindent This Thesis has neither been previously submitted to another authority nor has it been published yet.
+
+\section*{Eidesstattliche Erklärung}
+
+\noindent Die selbständige und eigenhändige Anfertigung versichert an Eides statt
+
+\vspace{2cm}
+
+\begin{minipage}{0.5\textwidth}
+\noindent\makebox[1pt][l]{\rule{.8\textwidth}{1pt}}\\[3pt]
+City/Stadt, Date/Datum
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\noindent\makebox[1pt][l]{\rule{.8\textwidth}{1pt}}\\[3pt]
+Signature/Unterschrift: NAME
+\end{minipage}
+
+\cleardoublepage
+
+\phantomsection\addcontentsline{toc}{chapter}{Abstract}\chapter*{Abstract}
+TODO
+
+\cleardoublepage
+
+\phantomsection\addcontentsline{toc}{chapter}{Kurzfassung}\chapter*{Kurzfassung}
+
+\cleardoublepage
+
+\phantomsection\addcontentsline{toc}{chapter}{\contentsname}\tableofcontents
+
+\cleardoublepage
+
+\phantomsection\addcontentsline{toc}{chapter}{\listfigurename}\listoffigures
+
+\cleardoublepage
+
+\phantomsection\addcontentsline{toc}{chapter}{\listtablename}\listoftables
+
+\cleardoublepage
+
+
+\phantomsection\addcontentsline{toc}{chapter}{\acronymname}\printglossary[type=\acronymtype]
+
+%\cleardoublepage
+
+% \phantomsection\addcontentsline{toc}{chapter}{\glossaryname}\printglossary
+
+% \cleardoublepage
+
+\listofsymbols
+
+\renewcommand{\baselinestretch}{1.25}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mainmatter
+
+\chapter{Introduction}
+
+\symnz 
+
+\chapter{Theory}
+
+\gls{awg}
+
+\index{qry\_visa() (VPI.ConnectHandle method)}
+
+\appendix
+
+\chapter{Implementation Reference}
+
+\nocite{pieper:09}
+\bibliographystyle{apalike}
+\bibliography{lit} % Endung .bib
+\addcontentsline{toc}{chapter}{\bibname}
+
+
+\cleardoublepage
+\renewcommand{\indexname}{Index}
+\phantomsection\addcontentsline{toc}{chapter}{\indexname}\printindex
+
+
+\end{document}

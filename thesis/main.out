@@ -1,0 +1,21 @@
+\BOOKMARK [0][-]{chapter*.1}{Declaration of academic honesty}{}% 1
+\BOOKMARK [0][-]{chapter*.4}{Abstract}{}% 2
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 3
+\BOOKMARK [0][-]{chapter.2}{Theory}{}% 4
+\BOOKMARK [1][-]{section.2.1}{something}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.2}{something}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.3}{something}{chapter.2}% 7
+\BOOKMARK [0][-]{chapter.3}{Interface implementation}{}% 8
+\BOOKMARK [1][-]{section.3.1}{Functionality}{chapter.3}% 9
+\BOOKMARK [1][-]{section.3.2}{Structure of the implementation}{chapter.3}% 10
+\BOOKMARK [1][-]{section.3.3}{Universal functions}{chapter.3}% 11
+\BOOKMARK [1][-]{section.3.4}{Error handling}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.5}{Connection handling}{chapter.3}% 13
+\BOOKMARK [1][-]{section.3.6}{Instrument handling}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.7}{User Interface}{chapter.3}% 15
+\BOOKMARK [0][-]{chapter.4}{Testing the application}{}% 16
+\BOOKMARK [1][-]{section.4.1}{Keysight}{chapter.4}% 17
+\BOOKMARK [1][-]{section.4.2}{LeCroy}{chapter.4}% 18
+\BOOKMARK [1][-]{section.4.3}{Tektronix}{chapter.4}% 19
+\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 20
+\BOOKMARK [0][-]{appendix.A}{Developer documentation}{}% 21
