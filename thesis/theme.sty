@@ -325,19 +325,33 @@ caption= #2,
 \usepackage[includeheadfoot, bindingoffset=0.25in, top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
 
 \usepackage{fancyhdr}
+\pagestyle{fancy}
 \makeatletter
-\def\headrule{{\color{gray!50}\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi
+\def\headrule{{\color{gray!30}\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi
 \hrule\@height\headrulewidth\@width\headwidth
 \vskip-\headrulewidth}}
 \makeatother
-% \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-% \renewcommand{\sectionmark}[1]{\markright{#1}}
-\pagestyle{fancy}
-% \fancyhf{}
-\fancyhead[LE,RO]{\thepage}
-\fancyhead[LO]{{\nouppercase{\rightmark}}}
-\fancyhead[RE]{{\nouppercase{\leftmark}}}
-\fancyfoot[C]{}	
+\fancyhf{}
+%\hspace*{-0.05\headwidth}
+\fancyhead[LE]{\rule[-1.5ex]{0pt}{2ex}\fcolorbox{white}{gray!50}{\makebox[\dimexpr0.05\headwidth-2\fboxsep][c]{\mathstrut\thepage}}%
+               \fcolorbox{white}{gray!30}{\makebox[\dimexpr.9475\headwidth-2\fboxsep][r]{\mathstrut\nouppercase\leftmark}}}
+\fancyhead[LO]{\rule[-1.5ex]{0pt}{2ex}\fcolorbox{white}{gray!30}{\makebox[\dimexpr.9475\headwidth-2\fboxsep][l]{\mathstrut\nouppercase\rightmark}}%
+                \fcolorbox{white}{gray!50}{\makebox[\dimexpr0.05\headwidth-2\fboxsep][c]{\mathstrut\thepage}}}
+\renewcommand{\headrulewidth}{1pt}
+\setlength{\headheight}{18pt}
+% \makeatletter
+% \def\headrule{{\color{gray!50}\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi
+% \hrule\@height\headrulewidth\@width\headwidth
+% \vskip-\headrulewidth}}
+% \makeatother
+% % \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+% % \renewcommand{\sectionmark}[1]{\markright{#1}}
+% \pagestyle{fancy}
+% % \fancyhf{}
+% \fancyhead[LE,RO]{\thepage}
+% \fancyhead[LO]{{\nouppercase{\rightmark}}}
+% \fancyhead[RE]{{\nouppercase{\leftmark}}}
+% \fancyfoot[C]{}	
 % \renewcommand{\headrulewidth}{0pt}
 %\renewcommand{\footrulewidth}{0pt}
 \usepackage{ltablex}
