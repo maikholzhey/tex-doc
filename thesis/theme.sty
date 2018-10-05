@@ -6,11 +6,12 @@
 \usepackage{pdfpages}
 \usepackage{emptypage}
 \usepackage{caption}
+\captionsetup{font = small, labelsep = period,labelfont=bf, position=top}
 \usepackage{microtype}
 \usepackage{eurosym}
 \usepackage{siunitx}
 \usepackage{setspace}
-	\captionsetup{format=hang,indention=0.025cm,labelfont=bf, width=\textwidth, position=top}
+	
 	%\renewcommand\figurename{Bild}
 
 \usepackage{listings}
@@ -332,10 +333,10 @@ caption= #2,
 \vskip-\headrulewidth}}
 \makeatother
 \fancyhf{}
-%\hspace*{-0.05\headwidth}
-\fancyhead[LE]{\rule[-1.5ex]{0pt}{2ex}\fcolorbox{white}{gray!50}{\makebox[\dimexpr0.05\headwidth-2\fboxsep][c]{\mathstrut\thepage}}%
-               \fcolorbox{white}{gray!30}{\makebox[\dimexpr.9475\headwidth-2\fboxsep][r]{\mathstrut\nouppercase\leftmark}}}
-\fancyhead[LO]{\rule[-1.5ex]{0pt}{2ex}\fcolorbox{white}{gray!30}{\makebox[\dimexpr.9475\headwidth-2\fboxsep][l]{\mathstrut\nouppercase\rightmark}}%
+%\hspace*{-0.025\headwidth}
+\fancyhead[LE]{\hspace*{-0.00125\headwidth}\rule[-1.5ex]{0pt}{2ex}\fcolorbox{white}{gray!50}{\makebox[\dimexpr0.05\headwidth-2\fboxsep][c]{\mathstrut\thepage}}%
+               \fcolorbox{white}{gray!30}{\makebox[\dimexpr.94875\headwidth-2\fboxsep][r]{\mathstrut\nouppercase\leftmark}}}
+\fancyhead[LO]{\hspace*{-0.00125\headwidth}\rule[-1.5ex]{0pt}{2ex}\fcolorbox{white}{gray!30}{\makebox[\dimexpr.94875\headwidth-2\fboxsep][l]{\mathstrut\nouppercase\rightmark}}%
                 \fcolorbox{white}{gray!50}{\makebox[\dimexpr0.05\headwidth-2\fboxsep][c]{\mathstrut\thepage}}}
 \renewcommand{\headrulewidth}{1pt}
 \setlength{\headheight}{18pt}
