@@ -177,25 +177,25 @@ caption= #2,
   {\par\xdef\tpd{\the\prevdepth}\egroup
    \prevdepth=\tpd}
 
-
+\usepackage[outercaption]{sidecap}  
 % Makros
 \newcommand{\pic}[4]{
 %figure
 %%%%%%%%%%
-\begin{figure}%
-\centering
+\begin{SCfigure}%
+%\centering
 \includegraphics[width=#4\textwidth]{#1}
 \vspace{10pt}
 \caption{#2}
 \label{#3}
-\end{figure}
+\end{SCfigure}
 }
 
 \newcommand{\pich}[4]{
 %figure
 %%%%%%%%%%
 \begin{figure}[htbp]%
-\centering
+%\centering
 \includegraphics[width=#4\textwidth]{#1}
 \vspace{10pt}
 \caption{#2}
@@ -339,7 +339,7 @@ caption= #2,
 \fancyhead[LO]{\hspace*{-0.00125\headwidth}\rule[-1.5ex]{0pt}{2ex}\fcolorbox{white}{gray!30}{\makebox[\dimexpr.94875\headwidth-2\fboxsep][l]{\mathstrut\nouppercase\rightmark}}%
                 \fcolorbox{white}{gray!50}{\makebox[\dimexpr0.05\headwidth-2\fboxsep][c]{\mathstrut\thepage}}}
 \renewcommand{\headrulewidth}{1pt}
-\setlength{\headheight}{18pt}
+\setlength{\headheight}{18.3pt}
 % \makeatletter
 % \def\headrule{{\color{gray!50}\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi
 % \hrule\@height\headrulewidth\@width\headwidth
