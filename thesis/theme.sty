@@ -185,7 +185,6 @@ caption= #2,
 \begin{SCfigure}%
 %\centering
 \includegraphics[width=#4\textwidth]{#1}
-\vspace{10pt}
 \caption{#2}
 \label{#3}
 \end{SCfigure}
@@ -194,13 +193,12 @@ caption= #2,
 \newcommand{\pich}[4]{
 %figure
 %%%%%%%%%%
-\begin{figure}[htbp]%
+\begin{SCfigure}[htbp]%
 %\centering
 \includegraphics[width=#4\textwidth]{#1}
-\vspace{10pt}
 \caption{#2}
 \label{#3}
-\end{figure}
+\end{SCfigure}
 }
 
 \makeatletter
@@ -335,8 +333,8 @@ caption= #2,
 \fancyhf{}
 %\hspace*{-0.025\headwidth}
 \fancyhead[LE]{\hspace*{-0.00125\headwidth}\rule[-1.5ex]{0pt}{2ex}\fcolorbox{white}{gray!50}{\makebox[\dimexpr0.05\headwidth-2\fboxsep][c]{\mathstrut\thepage}}%
-               \fcolorbox{white}{gray!30}{\makebox[\dimexpr.94875\headwidth-2\fboxsep][r]{\mathstrut\nouppercase\leftmark}}}
-\fancyhead[LO]{\hspace*{-0.00125\headwidth}\rule[-1.5ex]{0pt}{2ex}\fcolorbox{white}{gray!30}{\makebox[\dimexpr.94875\headwidth-2\fboxsep][l]{\mathstrut\nouppercase\rightmark}}%
+               \fcolorbox{white}{gray!30}{\makebox[\dimexpr.94875\headwidth-2\fboxsep][r]{\mathstrut\small\nouppercase\leftmark}}}
+\fancyhead[LO]{\hspace*{-0.00125\headwidth}\rule[-1.5ex]{0pt}{2ex}\fcolorbox{white}{gray!30}{\makebox[\dimexpr.94875\headwidth-2\fboxsep][l]{\mathstrut\small\nouppercase\rightmark}}%
                 \fcolorbox{white}{gray!50}{\makebox[\dimexpr0.05\headwidth-2\fboxsep][c]{\mathstrut\thepage}}}
 \renewcommand{\headrulewidth}{1pt}
 \setlength{\headheight}{18.3pt}
