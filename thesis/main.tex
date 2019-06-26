@@ -1,4 +1,4 @@
-\documentclass[a4paper,twoside,10pt]{book}
+\documentclass[a4paper,twoside,10pt,]{book}
 \usepackage[utf8]{inputenc}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -7,14 +7,48 @@
 \usepackage[english]{babel}
 %\usepackage[ngerman]{babel}
 
+
+
+%\usepackage[Sonny]{fncychap}
+%\ChRuleWidth{0.25pt}
+%\ChNumVar{\large}
+%\ChNameVar{\large\it}
+%\ChTitleVar{\LARGE\sc}
+
 \usepackage{theme}
 \sloppy
 \raggedbottom
 
+\usepackage{titlesec}
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hspt}{\hspace{20pt}}
+\usepackage{mathtools}
+\usepackage{comment}
+
+ \titleformat{\chapter}[hang]{\filleft\Huge\scshape}{\textcolor{TitleColor}{\thechapter}\hspt\textcolor{gray75}{|}\hspt}{0pt}{\LARGE}
+
+
+%additional packages
+\usepackage{tikz}
+
+\newcommand{\arcl}[1]{{%
+  \setbox9=\hbox{#1}%
+  \ooalign{\resizebox{\wd9}{.75\height}{\texttoptiebar{\phantom{A}}}\cr#1}}}
+
+\renewcommand\MakeUppercase[1]{#1}
+
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 
+\newcommand{\placeholder}[1]{\pic{logo/blancoImage}{#1}{label#1}{.3}}
+
+\newcommand{\norm}[1]{\left\lVert~#1~\right\rVert}
+
+\usepackage{tcolorbox}
+\usepackage{glossary-mcols} 
+
 % python code index
-\makeindex
+\makeindex[options= -s python.ist]
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 % Styleguide
 %%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -49,42 +83,120 @@
 %includegraphics Makro
 %\pic{path}{caption}{label}{size[\textwidth]}
 
+\usepackage{graphicx,tipa}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{colortbl} 
+\usepackage{xfrac}
+\usepackage{arcs}
+\newcommand{\arc}[1]{{%
+  \setbox9=\hbox{#1}%
+  \ooalign{\resizebox{\wd9}{\height}{\texttoptiebar{\phantom{A}}}\cr#1}}}
+\newcommand{\arcarc}[1]{{%
+  \setbox9=\hbox{#1}%
+  \ooalign{\resizebox{\wd9}{1.2 \height}{\texttoptiebar{\phantom{A}}}\cr\arc{#1}}}}
+
+  
+\newcommand*\Laplace{\mathop{}\!\mathbin{}\bigtriangleup}
+\newcommand*\DAlambert{\mathop{}\!\mathbin{}\Box}
+\newcommand*\laplace{\mathop{}\!\mathcal{4}}
+
+\captionsetup{labelsep=quad}
+\usepackage{chngcntr}
+\counterwithin{figure}{chapter}
+\counterwithin{table}{chapter}
+
+\renewcommand{\epigraphrule}{0pt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 % Dokument Info
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\institute}{}
-\newcommand{\department}{}
-\newcommand{\university}{}
-\newcommand{\thesis}{}
-\newcommand{\professor}{}
-\newcommand{\supervisor}{}
-\newcommand{\collaborator}{}
-\title{master-tet}
-\author{}
+\newcommand{\institute}{Electrical Engineering and Computer Science\\Institute for high-frequency- and semiconducter system technologies}
+\newcommand{\department}{T}
+\newcommand{\university}{University of Technology Berlin}
+\newcommand{\thesis}{Master Thesis}
+\newcommand{\professor}{Prof. Dr.-Ing. }
+\newcommand{\supervisor}{Prof. Dr.-Ing.}
+\newcommand{\departmentcol}{D}
+\newcommand{\collaborator}{University of}
+\newcommand{\titley}{lorepm  ipsum}
+\newcommand{\authory}{NAME}
 \newcommand{\studentno}{}
-\date{\today}
+\newcommand{\datey}{\today}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hyperref Setup
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{colorlinks=true, citecolor=blue, linkcolor=black,
+ urlcolor=black,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ABBR
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\h}{\vec{\boldsymbol{H}}}
+\newcommand{\B}{\vec{\boldsymbol{B}}}
+\newcommand{\D}{\vec{\boldsymbol{D}}}
+\newcommand{\E}{\vec{\boldsymbol{E}}}
+\newcommand{\J}{\vec{\boldsymbol{J}}}
+\newcommand{\K}{\vec{\boldsymbol{K}}}
+%\newcommand{\s}{\vec{\boldsymbol{S}}}
+\newcommand{\A}{\vec{\boldsymbol{A}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 % Glossary
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-\newacronym{awg}{AWG}{Arbitrary Waveform Generator}
+\makenoidxglossaries
+
+
+\newacronym{qoi}{QoI}{Quantity of Interest}
+\newacronym{UQ}{UQ}{Uncertainty Quantification}
+\newacronym{MC}{MC}{Monte-Carlo}
+\newacronym{QMC}{QMC}{Quasi-Monte-Carlo}
+\newacronym{FIT}{FIT}{Finite-Integration-Technique}
+\newacronym{FDTD}{FDTD}{Finite-Differences Time-Domain}
+\newacronym{PC}{PC}{Polynomial Chaos}
+\newacronym{PDE}{PDE}{Partial Differential Equation}
+\newacronym{RV}{RV}{Random Variable}
+\newacronym{PCE}{PCE}{Polynomial Chaos Expansion}
+\newacronym{GPU}{GPU}{Graphics Processing Unit}
+\newacronym{SG}{SG}{Sparse Grid}
 
 \newglossaryentry{ieee}
 {
 name={\textsl{IEEE}},
-description={Institute of Electrical and Electronics Engineers. Proffessional association of electronics and electrical engineers. Next to organizing conferences and publishing the latest outcome in research and development, it is responsible for many well accepted industry standards.},
+description={Institute of Electrical and Electronics Engineers. Professional association of electronics and electrical engineers. Next to organizing conferences and publishing the latest outcome in research and development, it is responsible for many well accepted industry standards.},
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 % List of Symbols
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%Final
 \usepackage[final]{listofsymbols}
 \renewcommand{\symheadingname}{\rule{2cm}{0.4pt}}
 \opensymdef
 \newsym[Quantity of natural numbers]{symnz}{\mathbb{N}}
+\newsym[Quantity of real numbers]{symr}{\mathbb{R}}
+\newsym[Space of square integrable functions]{leb}{\mathcal{L}_2}
+\newsym[Space of polynomials]{symp}{\mathbb{P}}
+\newsym[Hilbert space]{hilbert}{\mathbb{H}}
+\newsym[Measurable function]{measfunc}{X}
+\newsym[Cumulative distribution function]{cumfunc}{F_X}
+\newsym[Measure]{measure}{F}
+\newsym[$\sigma$-algebra]{sigmaalg}{\mathfrak{U}}
+\newsym[Borel-$\sigma$-algebra]{bsigmaalg}{\mathfrak{B}}
+\newsym[Expectation]{expect}{E}
+\newsym[Variance]{var}{V}
+\newsym[Polynomial]{poly}{p}
+\newsym[Polynomial Chaos Expansion coefficient]{etaCoeff}{\eta}
+\newsym[Galerkin-Tensor]{galerkintensor}{\mathcal{G}}
+\newsym[FIT curl operator]{curl}{C}
+\newsym[FIT material matrices for $\varepsilon$]{epsmatrix}{M_{\varepsilon}}
+\newsym[FIT material matrices for $\mu$]{muematrix}{M_{\mu}}
+\newsym[Uniform distribution]{uniform}{\mathcal{U}}
+\newsym[Normal distribution]{normal}{\mathcal{N}}
+\newsym[Univariate quadrature rule]{qrule}{q}
 \closesymdef
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -104,19 +216,17 @@ description={Institute of Electrical and Electronics Engineers. Proffessional as
 \phantomsection\addcontentsline{toc}{chapter}{Declaration of Academic Integrity}\section*{Declaration of Academic Integrity}
 %\section*{Declaration of Academic Integrity}
 
-Herewith I affirm that this present thesis is solely my own work and has been composed without the use of any other resources than the ones indicated.
-
-\noindent This Thesis has neither been previously submitted to another authority nor has it been published yet.
+I hereby declare that the thesis submitted is my own, unaided work, completed without any unpermitted external help. Only the sources and resources listed were used.
 
 \section*{Eidesstattliche Erklärung}
 
-\noindent Die selbständige und eigenhändige Anfertigung versichert an Eides statt
+\noindent Hiermit erkläre ich, dass ich die vorliegende Arbeit selbstständig und eigenhändig sowie ohne unerlaubte fremde Hilfe und ausschließlich unter Verwendung der aufgeführten Quellen und Hilfsmittel angefertigt habe.
 
 \vspace{2cm}
 
 \begin{minipage}{0.5\textwidth}
 \noindent\makebox[1pt][l]{\rule{.8\textwidth}{1pt}}\\[3pt]
-City/Stadt, Date/Datum
+Place/Ort, Date/Datum
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
 \noindent\makebox[1pt][l]{\rule{.8\textwidth}{1pt}}\\[3pt]
@@ -126,7 +236,6 @@ Signature/Unterschrift: NAME
 \cleardoublepage
 
 \phantomsection\addcontentsline{toc}{chapter}{Abstract}\chapter*{Abstract}
-TODO
 
 \cleardoublepage
 
@@ -136,22 +245,24 @@ TODO
 
 \phantomsection\addcontentsline{toc}{chapter}{\contentsname}\tableofcontents
 
-\cleardoublepage
+%\cleardoublepage
 
-\phantomsection\addcontentsline{toc}{chapter}{\listfigurename}\listoffigures
-
-\cleardoublepage
-
-\phantomsection\addcontentsline{toc}{chapter}{\listtablename}\listoftables
-
-\cleardoublepage
-
-
-\phantomsection\addcontentsline{toc}{chapter}{\acronymname}\printglossary[type=\acronymtype]
+%\phantomsection\addcontentsline{toc}{chapter}{\listfigurename}\listoffigures
 
 %\cleardoublepage
 
-% \phantomsection\addcontentsline{toc}{chapter}{\glossaryname}\printglossary
+%\phantomsection\addcontentsline{toc}{chapter}{\listtablename}\listoftables
+
+\cleardoublepage
+
+%\printglossary
+\renewcommand*{\acronymname}{Acronyms \& Symbols}
+\phantomsection\addcontentsline{toc}{chapter}{\acronymname}\setglossarystyle{mcoltree}\printnoidxglossaries
+
+%\cleardoublepage
+
+%\phantomsection\addcontentsline{toc}{chapter}{\glossaryname}
+
 
 % \cleardoublepage
 
@@ -164,43 +275,72 @@ TODO
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \mainmatter
+ \titleformat{\chapter}[hang]{\Huge\scshape}{\textcolor{TitleColor}{\thechapter}\hspt\textcolor{gray75}{|}\hspt}{0pt}{\LARGE}
 
+\color{TitleColor}
 \chapter{Introduction}
+\color{black}
 
-\symnz 
+\epigraph{Technology, in common with many other activities, tends toward avoidance of risks by investors. Uncertainty is ruled out if possible. People generally prefer the predictable. Few recognize how destructive this can be, how it imposes severe limits on variability and thus makes whole populations fatally vulnerable to the shocking ways our universe can throw the dice.}{Frank Herbert, Heretics of Dune}
 
+\symnz \gls{GPU} \cite{levy, sullivan}
+
+
+\color{TitleColor}
 \chapter{Theory}
+\color{black}
+\label{ch:theory}
 
-\gls{awg} 
+\epigraph{Dr. von Neumann, I would like to know,
+what is a Hilbert Space?}{David Hilbert}
+
+%\epigraph{Who can think of stupid things or clever, \newline
+%That past ages didn’t, long ago, understand}{Goethe, Faust II,
+%Act II: Scene I}
 
 \section{lorem}
 \lipsum 
 
 \pic{logo/tet_logo}{Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae,
 felis. Curabitur dictum gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna.
-Donec vehicula augue eu neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac}{label}{.7}
+Donec vehicula augue eu neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac}{label}{.7}{asdf}
 
 \section{ipsum}
 \lipsum 
 \pic{logo/tet_logo}{Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae,
 felis. Curabitur dictum gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna.
-Donec vehicula augue eu neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac}{label2}{.7}
+Donec vehicula augue eu neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac}{label2}{.7}{asdf}
 
 \index{qry\_visa() (VPI.ConnectHandle method)}
 
-\appendix
 
-\chapter{Implementation Reference}
+\bookmarksetup{startatroot}
 
-\nocite{pieper:09}
-\bibliographystyle{apalike}
+\begin{appendices}
+
+\color{TitleColor}
+\chapter{Orthogonal Polynomials}
+\color{black}
+\label{ch:polynomials}
+\end{appendices}
+
+
+\backmatter
+\titleformat{\chapter}[hang]{\flushright\Huge\scshape}{\textcolor{TitleColor}{\thechapter}\hsp\textcolor{gray75}{|}\hsp}{0pt}{\LARGE}
+
+\phantomsection\addcontentsline{toc}{chapter}{\bibname}
+\bibliographystyle{plain}
+\renewcommand{\bibpreamble}{\begin{multicols}{2}}
+\renewcommand{\bibpostamble}{\end{multicols}}
+%\begin{multicols}{2}
 \bibliography{lit} % Endung .bib
-\addcontentsline{toc}{chapter}{\bibname}
-
+%\end{multicols}
 
 \cleardoublepage
 \renewcommand{\indexname}{Index}
-\phantomsection\addcontentsline{toc}{chapter}{\indexname}\printindex
+
+\phantomsection\addcontentsline{toc}{chapter}{\indexname}
+\printindex
 
 
 \end{document}
